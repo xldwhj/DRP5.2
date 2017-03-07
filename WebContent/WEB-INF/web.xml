@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>DRP1.0</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <param-name>pageSize</param-name>
+    <param-value>2</param-value>
+  </context-param>
+  <filter>
+    <filter-name>CharseEncodingFilter</filter-name>
+    <filter-class>com.bjpowernode.drp.util.filter.CharseEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharseEncodingFilter</filter-name>
+    <url-pattern>/servlet/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CharseEncodingFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+  
+  <session-config>
+    <session-timeout>60</session-timeout>
+  </session-config>
+  
+  <servlet>
+    <servlet-name>ClientIdValidateServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.util.servlet.ClientIdValidateServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClientIdValidateServlet</servlet-name>
+    <url-pattern>/servlet/ClientIdValidateServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ShowAddItemServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.basedata.web.ShowAddItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowAddItemServlet</servlet-name>
+    <url-pattern>/servlet/item/ShowAddItemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>AddItemServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.basedata.web.AddItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddItemServlet</servlet-name>
+    <url-pattern>/servlet/item/AddItemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>SearchItemServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.basedata.web.SearchItemServlet</servlet-class>
+    <init-param>
+      <param-name>pageNo</param-name>
+      <param-value>1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pageSize</param-name>
+      <param-value>2</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchItemServlet</servlet-name>
+    <url-pattern>/servlet/item/SearchItemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ShowModifyItemServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.basedata.web.ShowModifyItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowModifyItemServlet</servlet-name>
+    <url-pattern>/servlet/item/ShowModifyItemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ModifyItemServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.basedata.web.ModifyItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifyItemServlet</servlet-name>
+    <url-pattern>/servlet/item/ModifyItemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>DeleteItemServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.basedata.web.DeleteItemServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteItemServlet</servlet-name>
+    <url-pattern>/servlet/item/DeleteItemServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.basedata.web.FileUploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/servlet/item/FileUploadServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>FlowCardServlet</servlet-name>
+  	<servlet-class>com.bjpowernode.drp.flowcard.web.FlowCardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FlowCardServlet</servlet-name>
+    <url-pattern>/servlet/flowcard/FlowCardServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>com.bjpowernode.drp.util.servlet.InitServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <error-page>
+    <exception-type>com.bjpowernode.drp.util.ApplicationException</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/http_error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/http_error.jsp</location>
+  </error-page>
+</web-app>

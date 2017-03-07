@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<db-info>
+		<driver-name>com.mysql.jdbc.Driver</driver-name>
+		<url>jdbc:mysql://127.0.0.1:3306/drpmysql</url>
+		<user-name>root</user-name>
+		<password>123123</password>
+	</db-info>
+	
+	<!-- <dao-factory>
+		<item-dao-sqlFactory>com.bjpowernode.drp.basedata.dao.ItemDaoFactory4MySql</item-dao-sqlFactory>
+		<item-dao-oracleFactory>com.bjpowernode.drp.basedata.dao.ItemDaoFactory4Oracle</item-dao-oracleFactory>
+	</dao-factory> -->
+</config>
